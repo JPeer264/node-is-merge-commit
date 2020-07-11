@@ -22,12 +22,12 @@ $ yarn add is-merge-commit
 
 Parameters:
 
-- commit <String>: The git commit identifier
-- options <Object> (optional)
+- commit `<String>`: The git commit identifier
+- options `<Object>` (optional)
 
 Options:
 
-- cwd <String>: Current working directory for the git execution
+- cwd `<String>`: Current working directory for the git execution
 
 Returns:
 - Boolean: Wether it is a merge commit or not
