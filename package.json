@@ -27,11 +27,10 @@
   "keywords": [
     "is",
     "git",
-    "added",
+    "merge",
     "HEAD",
     "repo",
-    "is-git",
-    "exists"
+    "is-git"
   ],
   "author": "Jan Peer Stöcklmair",
   "license": "MIT",
