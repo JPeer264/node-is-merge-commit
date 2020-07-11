@@ -5,7 +5,7 @@
   "main": "dest/build.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint index.ts '__tests__/**/*.ts'",
+    "lint": "eslint index.ts __tests__/test.spec.ts",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "rimraf dest && tsc && babel dest -d dest"
   },
