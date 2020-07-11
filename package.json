@@ -1,0 +1,64 @@
+{
+  "name": "is-merge-commit",
+  "version": "0.0.0",
+  "description": "A tool to check if files are added in a git repository",
+  "main": "dest/build.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint index.ts '__tests__/**/*.ts'",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "build": "rimraf dest && tsc && babel dest -d dest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPeer264/node-is-merge-commit.git"
+  },
+  "keywords": [
+    "is",
+    "git",
+    "added",
+    "HEAD",
+    "repo",
+    "is-git",
+    "exists"
+  ],
+  "author": "Jan Peer Stöcklmair",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JPeer264/node-is-merge-commit/issues"
+  },
+  "homepage": "https://github.com/JPeer264/node-is-merge-commit#readme",
+  "dependencies": {
+    "execa": "^4.0.3",
+    "is-git-repository": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@types/jest": "^26.0.4",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "git-commit-count": "^1.1.3",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.6"
+  }
+}
