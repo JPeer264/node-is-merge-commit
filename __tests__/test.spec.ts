@@ -22,6 +22,7 @@ afterAll(() => {
 
 it('should fail with no git repo', () => {
   expect(isMergeCommit('no-commit', { cwd: homedir() })).toBe(false);
+  expect(isMergeCommit('no-commit')).toBe(false);
 });
 
 it('should fail on execution', () => {
