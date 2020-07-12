@@ -1,11 +1,14 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 import { homedir } from 'os';
 import path from 'path';
 import gitCommitCount from 'git-commit-count';
+import tempDir from 'temp-dir';
+import { v4 as uuidv4 } from 'uuid';
 
 import isMergeCommit from '../index';
 
-const fixtures = path.join(process.cwd(), '__tests__', 'fixtures');
+const fixtures = path.join(tempDir, 'sgc', uuidv4());
+const localFixtures = path.join(process.cwd(), '__tests__', 'fixtures');
 const folders = [
   'merge_ff',
   'merge_no_ff',
@@ -13,11 +16,14 @@ const folders = [
 ];
 
 beforeAll(() => {
-  folders.map((folder) => fs.renameSync(path.join(fixtures, folder, 'git'), path.join(fixtures, folder, '.git')));
+  fs.copySync(localFixtures, fixtures);
+  folders.forEach((folder) => {
+    fs.renameSync(path.join(fixtures, folder, 'git'), path.join(fixtures, folder, '.git'));
+  });
 });
 
 afterAll(() => {
-  folders.map((folder) => fs.renameSync(path.join(fixtures, folder, '.git'), path.join(fixtures, folder, 'git')));
+  fs.removeSync(fixtures);
 });
 
 it('should fail with no git repo', () => {
