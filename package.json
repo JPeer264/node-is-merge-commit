@@ -1,6 +1,6 @@
 {
   "name": "is-merge-commit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool to check if files are added in a git repository",
   "main": "./dest/index.js",
   "types": "./dest/index.d.ts",
