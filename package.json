@@ -2,7 +2,8 @@
   "name": "is-merge-commit",
   "version": "1.0.0",
   "description": "A tool to check if files are added in a git repository",
-  "main": "dest/build.js",
+  "main": "./dest/index.js",
+  "types": "./dest/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "eslint index.ts __tests__/test.spec.ts",
